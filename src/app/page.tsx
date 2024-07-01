@@ -1,113 +1,97 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card";
+import { LucideAlarmClock, LucideGithub, LucideInstagram, LucideMail, LucideMenu } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import personalInfo from 'hiaguedes/info.json'
+import { SocialCard } from "@/components/ui/social-cards";
+import { Footer } from "@/components/ui/footer";
+
+export const metadata: Metadata = {
+  title: "Portfolio - Hiago/Home",
+  description: "Next + Tailwind + ShadCn",
+};
+
+const linkCurriculum = "https://www.notion.so/Hiago-Guedes-Curriculum-729abc1fc9ae4876a06897ce7b4d2469?pvs=4"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <>
+      <main className="flex min-h-screen flex-col items-center justify-center p-5 gap-3">
+        <header className="absolute flex justify-between flex-row top-0 w-full h-16 border-b-2 border-yellow-300 p-4">
+          <LucideMenu  className="cursor-pointer" />
+          <div>
+            <Button>
+              <Link href={linkCurriculum} target="__blank">
+                Baixar Curriculo
+              </Link>
+            </Button>
+          </div>
+        </header>
+        <section id="main" className="flex flex-row justify-center items-center gap-32 h-dvh">
+          <div className="">
+            <h2 className="mb-8 text-4xl">Meu nome e <h2 className="text-yellow-400 inline-flex">Hiago Guedes</h2>, ou apenas <h2 className="text-yellow-400 inline-flex">Hiaguedes</h2></h2>
+            <h4 className="text-gray-500">Desenvolvedor Front end </h4>
+          </div>
+          <HoverCard>
+          <HoverCardTrigger>
+          <Image
+            className="cursor-pointer"
+            src="/assets/avatar.png"
+            alt="Avatar Author"
+            width={300}
+            height={300}
+          />
+          </HoverCardTrigger>
+          <HoverCardContent>
+            <Card className="h-30 p-4 flex flex-row m-4 gap-2">
+              <Button className="w-12 h-12 rounded-full"><LucideAlarmClock /></Button>
+              <Button className="w-12 h-12 rounded-full"><LucideAlarmClock /></Button>
+              <Button className="w-12 h-12 rounded-full"><LucideAlarmClock /></Button>
+              <Button className="w-12 h-12 rounded-full"><LucideAlarmClock /></Button>
+              <Button className="w-12 h-12 rounded-full"><LucideAlarmClock /></Button>
+            </Card>
+          </HoverCardContent>
+          </HoverCard>
+        </section>
+        <section className="w-full flex flex-col" id="contacts">
+          <h2 className="text-xl mb-6">Contatos</h2>
+          <div className="flex flex-row gap-12 w-full items-center justify-center">
+            <SocialCard 
+              icon={<LucideInstagram />}
+              name="Instagram"
+              link={personalInfo.socials.personal.instagram}
+              userName="@hiago.guedes"
             />
-          </a>
-        </div>
-      </div>
+            <SocialCard 
+              icon={<LucideGithub  />}
+              name="Github"
+              link={personalInfo.socials.professional.github}
+              userName="hiaguedes"
+            />
+            <SocialCard 
+              icon={<LucideMail  />}
+              name="Email"
+              link={"mailto:" + personalInfo.socials.professional.email}
+              userName="hiagorguedes"
+            />
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          </div>
+        </section>
+        <section className="w-full flex flex-col" id="projects">
+          <h2 className="text-xl mb-2">Projetos</h2>
+          <p className="text-gray-500">Projetos de front-end, projetos de back-end, projetos inacabados</p>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        </section>
+        <section className="w-full flex flex-col" id="blog">
+          <h2 className="text-xl mb-2">Blog</h2>
+          <p className="text-gray-500">O que ando escrevendo</p>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }
