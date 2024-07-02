@@ -13,7 +13,7 @@ const Footer = React.forwardRef<
     <footer    
     ref={ref}
     className={cn(
-      "w-full p-8 bg-zinc-700 m-0",
+      "w-full px-12 py-8 bg-zinc-700 m-0",
       className
     )}
     {...props}

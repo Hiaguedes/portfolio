@@ -8,18 +8,19 @@ import Link from "next/link";
 import personalInfo from 'hiaguedes/info.json'
 import { SocialCard } from "@/components/ui/social-cards";
 import { Footer } from "@/components/ui/footer";
+import { PorfolioCard, PortfolioCardContent, PortfolioCardFooter, PortfolioCardHeader, PortfolioCardTitle } from "@/components/ui/portfolio-card";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
   description: "Next + Tailwind + ShadCn",
 };
 
-const linkCurriculum = "https://www.notion.so/Hiago-Guedes-Curriculum-729abc1fc9ae4876a06897ce7b4d2469?pvs=4"
+const linkCurriculum = "https://goldenrod-ocelot-343.notion.site/Hiago-Guedes-Curriculum-729abc1fc9ae4876a06897ce7b4d2469"
 
 export default function Home() {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-center p-5 gap-3">
+      <main className="flex min-h-screen flex-col items-center justify-center p-12 gap-3">
         <header className="absolute flex justify-between flex-row top-0 w-full h-16 border-b-2 border-yellow-300 p-4">
           <LucideMenu  className="cursor-pointer" />
           <div>
@@ -83,7 +84,23 @@ export default function Home() {
         <section className="w-full flex flex-col" id="projects">
           <h2 className="text-xl mb-2">Projetos</h2>
           <p className="text-gray-500">Projetos de front-end, projetos de back-end, projetos inacabados</p>
+          <div className="my-6 flex flex-row gap-8 flex-wrap">
+            <PorfolioCard>
+              <PortfolioCardHeader>
+                <PortfolioCardTitle>link agregator</PortfolioCardTitle>
 
+              </PortfolioCardHeader>
+              <PortfolioCardContent>
+                content
+              </PortfolioCardContent>
+              <PortfolioCardFooter>
+              footer
+              </PortfolioCardFooter>
+            </PorfolioCard>
+
+            
+
+          </div>
 
         </section>
         <section className="w-full flex flex-col" id="blog">
