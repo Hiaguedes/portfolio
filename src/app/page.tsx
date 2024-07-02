@@ -66,7 +66,7 @@ export default function Home() {
                   width={300}
                   height={300}
                 />
-                <Blob className="z-0" />
+                <Blob />
               </div>
             </HoverCardTrigger>
             <HoverCardContent>
