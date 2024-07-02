@@ -9,6 +9,7 @@ import personalInfo from 'hiaguedes/info.json'
 import { SocialCard } from "@/components/ui/social-cards";
 import { Footer } from "@/components/ui/footer";
 import { PorfolioCard, PortfolioCardContent, PortfolioCardFooter, PortfolioCardHeader, PortfolioCardTitle } from "@/components/ui/portfolio-card";
+import Blob from "@/components/ui/blob";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -31,20 +32,23 @@ export default function Home() {
             </Button>
           </div>
         </header>
-        <section id="main" className="flex flex-row justify-center items-center gap-32 h-dvh">
+        <section id="main" className="flex flex-row justify-center items-center max-w-2xl gap-32 h-dvh">
           <div className="">
             <h2 className="mb-8 text-4xl">Meu nome e <h2 className="text-yellow-400 inline-flex">Hiago Guedes</h2>, ou apenas <h2 className="text-yellow-400 inline-flex">Hiaguedes</h2></h2>
             <h4 className="text-gray-500">Desenvolvedor Front end </h4>
           </div>
           <HoverCard>
           <HoverCardTrigger>
-          <Image
-            className="cursor-pointer"
-            src="/assets/avatar.png"
-            alt="Avatar Author"
-            width={300}
-            height={300}
-          />
+          <div className="relative">
+              <Image
+                className="z-10 cursor-pointer absolute"
+                src="/assets/avatar.png"
+                alt="Avatar Author"
+                width={300}
+                height={300}
+              />
+              <Blob className="z-0" />
+          </div>
           </HoverCardTrigger>
           <HoverCardContent>
             <Card className="h-30 p-4 flex flex-row m-4 gap-2">
