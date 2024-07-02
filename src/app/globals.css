@@ -50,7 +50,22 @@
     transform-origin: bottom left;
   }
 
-
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Impede o scroll global */
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1;
+    overflow-y: auto;
+  }
 
     :root {
       --background: 0 0% 100%;
