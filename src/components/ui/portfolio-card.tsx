@@ -1,21 +1,24 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import Image, { ImageProps } from "next/image"
+import { SiCsharp, SiNpm, SiReact, SiRedux, SiStyledcomponents, SiTypescript } from "react-icons/si"
+import { RiNextjsFill } from "react-icons/ri"
 
-const PorfolioCard = React.forwardRef<
+const PorfolioCardBase = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm size-1/4 h-80 hover:scale-110 transform transition-transform duration-500",
+      "rounded-lg border bg-card text-card-foreground shadow-sm size-1/3 hover:scale-110 transform transition-transform duration-500",
       className
     )}
     {...props}
   />
 ))
-PorfolioCard.displayName = "PorfolioCard"
+PorfolioCardBase.displayName = "PorfolioCardBase"
 
 const PortfolioCardHeader = React.forwardRef<
   HTMLDivElement,
@@ -57,10 +60,31 @@ const PortfolioCardDescription = React.forwardRef<
 PortfolioCardDescription.displayName = "PortfolioCardDescription"
 
 const PortfolioCardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0 h-2/4", className)} {...props} />
+  HTMLImageElement,
+  ImageProps & {
+    hover?: boolean
+  }
+>(({ className, alt, hover, ...props }, ref) => (
+  <div className="w-full relative flex items-center justify-center">
+  <Image  
+     alt={alt ?? 'Imagem do projeto'} 
+     ref={ref} 
+     className={cn("w-full h-3/5 object-cover", className)} 
+     width={200}
+     height={200}
+     unoptimized
+     {...props}
+    />
+    {!hover && <div className="absolute bottom-6 h-8 flex flex-row gap-2">
+      <SiTypescript size={20} />
+      <SiNpm size={20} />
+      <RiNextjsFill size={20} />
+      <SiReact size={20} />
+      <SiRedux size={20} />
+      <SiStyledcomponents size={20} />
+      <SiCsharp size={20} />
+    </div>}
+    </div>
 ))
 PortfolioCardContent.displayName = "PortfolioCardContent"
 
@@ -70,10 +94,10 @@ const PortfolioCardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-6 pt-0 bg-gray-600 h-1/4", className)}
+    className={cn("flex items-center bg-gray-600", className)}
     {...props}
   />
 ))
 PortfolioCardFooter.displayName = "PortfolioCardFooter"
 
-export { PorfolioCard, PortfolioCardHeader, PortfolioCardFooter, PortfolioCardTitle, PortfolioCardDescription, PortfolioCardContent }
+export { PorfolioCardBase, PortfolioCardHeader, PortfolioCardFooter, PortfolioCardTitle, PortfolioCardDescription, PortfolioCardContent }

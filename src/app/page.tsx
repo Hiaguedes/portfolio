@@ -18,14 +18,9 @@ import Link from "next/link";
 import personalInfo from "hiaguedes/info.json";
 import { SocialCard } from "@/components/ui/social-cards";
 import { Footer } from "@/components/ui/footer";
-import {
-  PorfolioCard,
-  PortfolioCardContent,
-  PortfolioCardFooter,
-  PortfolioCardHeader,
-  PortfolioCardTitle,
-} from "@/components/ui/portfolio-card";
+
 import Blob from "@/components/ui/blob";
+import PortfolioCard from "@/components/PortfolioCard";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -71,11 +66,7 @@ export default function Home() {
             </HoverCardTrigger>
             <HoverCardContent>
               <Card className="h-30 p-4 flex flex-row m-4 gap-2">
-                {[...Array(5)].map((_, index) => (
-                  <Button key={index} className="w-12 h-12 rounded-full">
-                    <LucideAlarmClock />
-                  </Button>
-                ))}
+                <p>Ola!</p>
               </Card>
             </HoverCardContent>
           </HoverCard>
@@ -108,14 +99,13 @@ export default function Home() {
           <p className="text-gray-500">
             Projetos de front-end, projetos de back-end, projetos inacabados
           </p>
+
           <div className="my-6 flex flex-row gap-8 flex-wrap">
-            <PorfolioCard>
-              <PortfolioCardHeader>
-                <PortfolioCardTitle>link agregator</PortfolioCardTitle>
-              </PortfolioCardHeader>
-              <PortfolioCardContent>content</PortfolioCardContent>
-              <PortfolioCardFooter>footer</PortfolioCardFooter>
-            </PorfolioCard>
+           <PortfolioCard 
+           title="link-aggregator"
+           src="https://placehold.co/900x500"
+           alt="link-aggragator"
+           /> 
           </div>
         </section>
         <section className="w-full flex flex-col px-12" id="blog">

@@ -18,7 +18,7 @@ const Footer = React.forwardRef<
     )}
     {...props}
     >
-        <p>Desenvolvido por {personalInfo.name} usando Next.js, Tailwind e shadcn/ui</p>
+        <p>Desenvolvido por {personalInfo.name}, clique pra saber mais detalhes desse projeto</p>
     </footer>
 )});
 
