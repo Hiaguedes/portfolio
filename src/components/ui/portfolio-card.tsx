@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import Image, { ImageProps } from "next/image"
-import { SiCsharp, SiNpm, SiReact, SiRedux, SiStyledcomponents, SiTypescript } from "react-icons/si"
+import { SiCsharp, SiNpm, SiReact, SiRedux, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si"
 import { RiNextjsFill } from "react-icons/ri"
 
 const PorfolioCardBase = React.forwardRef<
@@ -12,7 +12,7 @@ const PorfolioCardBase = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm size-1/3 hover:scale-110 transform transition-transform duration-500",
+      "relative rounded-lg border bg-card text-card-foreground shadow-sm size-1/4 hover:scale-110 transform transition-transform duration-500",
       className
     )}
     {...props}
@@ -83,6 +83,7 @@ const PortfolioCardContent = React.forwardRef<
       <SiRedux size={20} />
       <SiStyledcomponents size={20} />
       <SiCsharp size={20} />
+      <SiTailwindcss size={20} />
     </div>}
     </div>
 ))

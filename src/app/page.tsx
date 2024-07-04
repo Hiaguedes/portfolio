@@ -100,11 +100,26 @@ export default function Home() {
             Projetos de front-end, projetos de back-end, projetos inacabados
           </p>
 
-          <div className="my-6 flex flex-row gap-8 flex-wrap">
+          <div className="my-6 flex flex-row gap-12 flex-wrap">
            <PortfolioCard 
-           title="link-aggregator"
-           src="https://placehold.co/900x500"
-           alt="link-aggragator"
+            title="link-aggregator"
+            src="https://placehold.co/900x500"
+            alt="link-aggregator"
+           /> 
+           <PortfolioCard 
+            title="link-aggregator"
+            src="https://placehold.co/900x500"
+            alt="link-aggregator"
+           /> 
+           <PortfolioCard 
+            title="link-aggregator"
+            src="https://placehold.co/900x500"
+            alt="link-aggregator"
+           /> 
+          <PortfolioCard 
+            title="link-aggregator"
+            src="https://placehold.co/900x500"
+            alt="link-aggregator"
            /> 
           </div>
         </section>
