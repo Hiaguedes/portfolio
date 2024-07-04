@@ -105,21 +105,25 @@ export default function Home() {
             title="link-aggregator"
             src="https://placehold.co/900x500"
             alt="link-aggregator"
+            techsUsed={['react', 'tailwind']}
            /> 
            <PortfolioCard 
             title="link-aggregator"
             src="https://placehold.co/900x500"
             alt="link-aggregator"
+            techsUsed={['next', 'npm', 'styled-components']}
            /> 
            <PortfolioCard 
             title="link-aggregator"
             src="https://placehold.co/900x500"
             alt="link-aggregator"
+            techsUsed={['cSharp']}
            /> 
           <PortfolioCard 
             title="link-aggregator"
             src="https://placehold.co/900x500"
             alt="link-aggregator"
+            techsUsed={['typescript']}
            /> 
           </div>
         </section>

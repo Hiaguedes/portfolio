@@ -59,12 +59,28 @@ const PortfolioCardDescription = React.forwardRef<
 ))
 PortfolioCardDescription.displayName = "PortfolioCardDescription"
 
+export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp';
+
 const PortfolioCardContent = React.forwardRef<
   HTMLImageElement,
   ImageProps & {
-    hover?: boolean
+    hover?: boolean,
+    techsUsed?: TechVariants[]
   }
->(({ className, alt, hover, ...props }, ref) => (
+>(({ className, alt, hover, techsUsed, ...props }, ref) => {
+
+  const Icons = new Map<TechVariants, React.ReactElement>([
+    ['npm', <SiNpm key="npm" size={20} />],
+    ['typescript',  <SiTypescript key="npm" size={20} />],
+    ['next', <RiNextjsFill key="npm" size={20} />],
+    ['react', <SiReact key="npm" size={20} />],
+    ['redux', <SiRedux key="npm" size={20} />],
+    ['styled-components', <SiStyledcomponents key="npm" size={20} />],
+    ['cSharp', <SiCsharp key="npm" size={20} />],
+    ['tailwind', <SiTailwindcss key="npm" size={20} />],
+  ])
+
+  return(
   <div className="w-full relative flex items-center justify-center">
   <Image  
      alt={alt ?? 'Imagem do projeto'} 
@@ -76,17 +92,10 @@ const PortfolioCardContent = React.forwardRef<
      {...props}
     />
     {!hover && <div className="absolute bottom-6 h-8 flex flex-row gap-2">
-      <SiTypescript size={20} />
-      <SiNpm size={20} />
-      <RiNextjsFill size={20} />
-      <SiReact size={20} />
-      <SiRedux size={20} />
-      <SiStyledcomponents size={20} />
-      <SiCsharp size={20} />
-      <SiTailwindcss size={20} />
+      {techsUsed?.map((tech) => Icons.get(tech))}
     </div>}
     </div>
-))
+)})
 PortfolioCardContent.displayName = "PortfolioCardContent"
 
 const PortfolioCardFooter = React.forwardRef<
