@@ -20,6 +20,9 @@ import { Footer } from "@/components/ui/footer";
 
 import Blob from "@/components/ui/blob";
 import PortfolioCard from "@/components/PortfolioCard";
+import { ReposApiResponse } from "@/infra/Repos/reposApiResponse";
+import { ReposId } from "@/helpers/repo/reposIdMap";
+import { format } from "date-fns";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -29,7 +32,18 @@ export const metadata: Metadata = {
 const linkCurriculum =
   "https://goldenrod-ocelot-343.notion.site/Hiago-Guedes-Curriculum-729abc1fc9ae4876a06897ce7b4d2469";
 
-export default function Home() {
+export async function getRepos(): Promise<ReposApiResponse[]> {
+    const res = await fetch('https://api.github.com/users/Hiaguedes/repos'); // Substitua pelo seu link público
+    const data: ReposApiResponse[] = await res.json();
+  
+    return data
+  }
+
+export default async function Home() {
+
+  const data = await getRepos();
+  const formatDate = (date: Date | undefined) => date ? format(date, 'dd/MM/yyyy') : ''
+
   return (
     <>
       <header className="flex justify-between items-center flex-row w-full border-b-2 border-yellow-300 p-5 h-auto sticky top-0 z-10">
@@ -100,29 +114,14 @@ export default function Home() {
           </p>
 
           <div className="my-6 flex flex-row gap-12 flex-wrap">
-           <PortfolioCard 
-            title="link-aggregator"
-            src="https://placehold.co/900x500"
+            <PortfolioCard 
+            key={ReposId.HIAGUEDES}
+            title={data.find(repo => repo.id === ReposId.HIAGUEDES)?.name ?? ''}
+            src="https://raw.githubusercontent.com/Hiaguedes/Hiaguedes/main/assets/preview-hiaguedes.png"
             alt="link-aggregator"
-            techsUsed={['react', 'tailwind']}
-           /> 
-           <PortfolioCard 
-            title="link-aggregator"
-            src="https://placehold.co/900x500"
-            alt="link-aggregator"
-            techsUsed={['next', 'npm', 'styled-components']}
-           /> 
-           <PortfolioCard 
-            title="link-aggregator"
-            src="https://placehold.co/900x500"
-            alt="link-aggregator"
-            techsUsed={['cSharp']}
-           /> 
-          <PortfolioCard 
-            title="link-aggregator"
-            src="https://placehold.co/900x500"
-            alt="link-aggregator"
-            techsUsed={['typescript']}
+            techsUsed={['npm', 'typescript']}
+            updatedAt={formatDate(data.find(repo => repo.id === ReposId.HIAGUEDES)?.updated_at) ?? ''}
+            link={data.find(repo => repo.id === ReposId.HIAGUEDES)?.html_url}
            /> 
           </div>
         </section>

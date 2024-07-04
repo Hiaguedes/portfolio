@@ -4,14 +4,17 @@ import { PorfolioCardBase, PortfolioCardContent, PortfolioCardFooter, PortfolioC
 import { cn } from "@/lib/utils";
 import { ImageProps } from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 type PortfolioCardProps = { 
     title: string;
     fakeHover?: boolean,
-    techsUsed?: TechVariants[]
+    techsUsed?: TechVariants[],
+    link?: string;
+    updatedAt: string;
  } & HTMLAttributes<HTMLDivElement> & ImageProps
 
-const PortfolioCard: FC<PortfolioCardProps> = ({ title, src, className, techsUsed, fakeHover, ...props }) => {
+const PortfolioCard: FC<PortfolioCardProps> = ({ title, src, className, techsUsed, updatedAt, link, fakeHover, ...props }) => {
 
     const [hover, setHover] = useState(!!fakeHover ?? false)
 
@@ -28,8 +31,8 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ title, src, className, techsUse
         </PortfolioCardHeader>
         <PortfolioCardContent techsUsed={techsUsed} hover={hover} alt={props.alt} src={src} className={!hover ? "filter brightness-[.3] transform transition-all duration-500" : "transform brightness-1 duration-500"}/>
           <PortfolioCardFooter className={cn("flex flex-row justify-between h-0 p-0 opacity-0", hover && "opacity-100 h-16 p-6 transform transition-all duration-500 delay-500 absolute w-full border rounded-br-lg rounded-bl-lg")}>
-              <p>Editado em: 03/07/2024</p>
-              <Button variant="outline" size="sm">Repo</Button>
+              <p>Editado em: {updatedAt}</p>
+              {link && <Button variant="outline" size="sm"><Link href={link} target="__blank">Repo</Link></Button>}
           </PortfolioCardFooter>
       </PorfolioCardBase>
     )

@@ -71,13 +71,13 @@ const PortfolioCardContent = React.forwardRef<
 
   const Icons = new Map<TechVariants, React.ReactElement>([
     ['npm', <SiNpm key="npm" size={20} />],
-    ['typescript',  <SiTypescript key="npm" size={20} />],
-    ['next', <RiNextjsFill key="npm" size={20} />],
-    ['react', <SiReact key="npm" size={20} />],
-    ['redux', <SiRedux key="npm" size={20} />],
-    ['styled-components', <SiStyledcomponents key="npm" size={20} />],
-    ['cSharp', <SiCsharp key="npm" size={20} />],
-    ['tailwind', <SiTailwindcss key="npm" size={20} />],
+    ['typescript',  <SiTypescript key="typescript" size={20} />],
+    ['next', <RiNextjsFill key="next" size={20} />],
+    ['react', <SiReact key="react" size={20} />],
+    ['redux', <SiRedux key="redux" size={20} />],
+    ['styled-components', <SiStyledcomponents key="styled" size={20} />],
+    ['cSharp', <SiCsharp key="cSharp" size={20} />],
+    ['tailwind', <SiTailwindcss key="tailwind" size={20} />],
   ])
 
   return(

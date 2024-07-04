@@ -2,3 +2,7 @@ https://api.github.com/users/Hiaguedes/repos
 
 Gerar blobs-
 https://app.haikei.app/
+
+https://opengraph.githubassets.com/{hash}/{owner}/{repo} -> meta
+
+https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{path/to/image}

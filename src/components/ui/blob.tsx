@@ -22,10 +22,6 @@ const Blob: FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    console.log(current)
-  }, [current])
-
   return (
     <motion.svg
       id="visual"
