@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import Image, { ImageProps } from "next/image"
-import { SiCsharp, SiCss3, SiGithubactions, SiJavascript, SiNpm, SiReact, SiRedux, SiRust, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si"
+import { SiCsharp, SiCss3, SiGithubactions, SiHtml5, SiJavascript, SiJest, SiNpm, SiReact, SiRedux, SiRust, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si"
 import { RiNextjsFill } from "react-icons/ri"
 
 const PorfolioCardBase = React.forwardRef<
@@ -59,7 +59,7 @@ const PortfolioCardDescription = React.forwardRef<
 ))
 PortfolioCardDescription.displayName = "PortfolioCardDescription"
 
-export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp' | 'gh-actions' | 'css' | 'javascript' | 'rust';
+export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp' | 'gh-actions' | 'css' | 'javascript' | 'rust' | 'html' | 'jest';
 
 const PortfolioCardContent = React.forwardRef<
   HTMLImageElement,
@@ -82,6 +82,8 @@ const PortfolioCardContent = React.forwardRef<
     ['javascript', <SiJavascript key="javascript" size={20} />],
     ['css', <SiCss3 key="css" size={20} />],
     ['rust', <SiRust key="rust" size={20} />],
+    ['html', <SiHtml5 key="html" size={20} />],
+    ['jest', <SiJest key="jest" size={20} />],
   ])
 
   return(

@@ -123,7 +123,7 @@ export default async function Home() {
             title={data.find(repo => repo.id === ReposId.IP_TRACK)?.name ?? ''}
             src="https://raw.githubusercontent.com/Hiaguedes/ip-address-tracker-master/master/design/desktop-preview.jpg"
             alt={`Imagem do repositorio ${data.find(repo => repo.id === ReposId.IP_TRACK)?.name}`}
-            techsUsed={['javascript' ,'css']}
+            techsUsed={['javascript' ,'css', 'html']}
             updatedAt={formatDate(data.find(repo => repo.id === ReposId.IP_TRACK)?.updated_at) ?? ''}
             link={data.find(repo => repo.id === ReposId.IP_TRACK)?.html_url}
            /> 
