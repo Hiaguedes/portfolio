@@ -12,7 +12,7 @@ const PorfolioCardBase = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "relative rounded-lg border bg-card text-card-foreground shadow-sm lg:size-1/4  size-2/3 hover:scale-110 transform transition-transform duration-500",
+      "relative rounded-lg border bg-card text-card-foreground shadow-sm xl:size-1/4 lg:size-1/3 size-full hover:scale-110 transform transition-transform duration-500",
       className
     )}
     {...props}
