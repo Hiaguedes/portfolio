@@ -20,9 +20,9 @@ import { Footer } from "@/components/ui/footer";
 
 import Blob from "@/components/ui/blob";
 import PortfolioCard from "@/components/PortfolioCard";
-import { ReposApiResponse } from "@/infra/Repos/reposApiResponse";
 import { ReposId } from "@/helpers/repo/reposIdMap";
 import { format } from "date-fns";
+import { getRepos } from "@/helpers/repo/getRepos";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -32,12 +32,6 @@ export const metadata: Metadata = {
 const linkCurriculum =
   "https://goldenrod-ocelot-343.notion.site/Hiago-Guedes-Curriculum-729abc1fc9ae4876a06897ce7b4d2469";
 
-export async function getRepos(): Promise<ReposApiResponse[]> {
-    const res = await fetch('https://api.github.com/users/Hiaguedes/repos'); // Substitua pelo seu link público
-    const data: ReposApiResponse[] = await res.json();
-  
-    return data
-  }
 
 export default async function Home() {
 
