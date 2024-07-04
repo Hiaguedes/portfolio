@@ -72,7 +72,7 @@ export default function Home() {
         </section>
         <section className="w-full flex flex-col px-12 py-10" id="contacts">
           <h2 className="text-xl mb-6">Contatos</h2>
-          <div className="flex flex-row gap-12 w-full items-center justify-center">
+          <div className="flex gap-12 w-full items-center justify-center sm:flex-row flex-col">
             <SocialCard
               icon={<LucideInstagram />}
               name="Instagram"
