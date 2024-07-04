@@ -23,6 +23,7 @@ import PortfolioCard from "@/components/PortfolioCard";
 import { ReposId } from "@/helpers/repo/reposIdMap";
 import { format } from "date-fns";
 import { getRepos } from "@/helpers/repo/getRepos";
+import { Github } from "@/helpers/github/essentials";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -112,7 +113,7 @@ export default async function Home() {
             <PortfolioCard 
             key={ReposId.HIAGUEDES}
             title={data.find(repo => repo.id === ReposId.HIAGUEDES)?.name ?? ''}
-            src="https://raw.githubusercontent.com/Hiaguedes/Hiaguedes/main/assets/preview-hiaguedes.png"
+            src={`${Github.ASSETS_URL}/${Github.OWNER}/Hiaguedes/${Github.MainBranches.MAIN}/assets/preview-hiaguedes.png`}
             alt={`Imagem do repositorio ${data.find(repo => repo.id === ReposId.HIAGUEDES)?.name}`}
             techsUsed={['npm', 'gh-actions', 'typescript']}
             updatedAt={formatDate(data.find(repo => repo.id === ReposId.HIAGUEDES)?.updated_at) ?? ''}
@@ -121,7 +122,7 @@ export default async function Home() {
             <PortfolioCard 
             key={ReposId.IP_TRACK}
             title={data.find(repo => repo.id === ReposId.IP_TRACK)?.name ?? ''}
-            src="https://raw.githubusercontent.com/Hiaguedes/ip-address-tracker-master/master/design/desktop-preview.jpg"
+            src={`${Github.ASSETS_URL}/${Github.OWNER}/ip-address-tracker-master/${Github.MainBranches.MASTER}/design/desktop-preview.jpg`}
             alt={`Imagem do repositorio ${data.find(repo => repo.id === ReposId.IP_TRACK)?.name}`}
             techsUsed={['javascript' ,'css', 'html']}
             updatedAt={formatDate(data.find(repo => repo.id === ReposId.IP_TRACK)?.updated_at) ?? ''}
