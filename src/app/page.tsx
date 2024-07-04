@@ -36,6 +36,7 @@ const linkCurriculum =
 export default async function Home() {
 
   const data = await getRepos();
+  // console.log(data)
   const formatDate = (date: Date | undefined) => date ? format(date, 'dd/MM/yyyy') : ''
 
   return (
@@ -112,10 +113,19 @@ export default async function Home() {
             key={ReposId.HIAGUEDES}
             title={data.find(repo => repo.id === ReposId.HIAGUEDES)?.name ?? ''}
             src="https://raw.githubusercontent.com/Hiaguedes/Hiaguedes/main/assets/preview-hiaguedes.png"
-            alt="link-aggregator"
-            techsUsed={['npm', 'typescript']}
+            alt={`Imagem do repositorio ${data.find(repo => repo.id === ReposId.HIAGUEDES)?.name}`}
+            techsUsed={['npm', 'gh-actions', 'typescript']}
             updatedAt={formatDate(data.find(repo => repo.id === ReposId.HIAGUEDES)?.updated_at) ?? ''}
             link={data.find(repo => repo.id === ReposId.HIAGUEDES)?.html_url}
+           /> 
+            <PortfolioCard 
+            key={ReposId.IP_TRACK}
+            title={data.find(repo => repo.id === ReposId.IP_TRACK)?.name ?? ''}
+            src="https://raw.githubusercontent.com/Hiaguedes/ip-address-tracker-master/master/design/desktop-preview.jpg"
+            alt={`Imagem do repositorio ${data.find(repo => repo.id === ReposId.IP_TRACK)?.name}`}
+            techsUsed={['javascript' ,'css']}
+            updatedAt={formatDate(data.find(repo => repo.id === ReposId.IP_TRACK)?.updated_at) ?? ''}
+            link={data.find(repo => repo.id === ReposId.IP_TRACK)?.html_url}
            /> 
           </div>
         </section>

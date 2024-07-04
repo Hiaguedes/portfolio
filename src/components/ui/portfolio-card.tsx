@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import Image, { ImageProps } from "next/image"
-import { SiCsharp, SiNpm, SiReact, SiRedux, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si"
+import { SiCsharp, SiCss3, SiGithubactions, SiJavascript, SiNpm, SiReact, SiRedux, SiRust, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si"
 import { RiNextjsFill } from "react-icons/ri"
 
 const PorfolioCardBase = React.forwardRef<
@@ -12,7 +12,7 @@ const PorfolioCardBase = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "relative rounded-lg border bg-card text-card-foreground shadow-sm lg:size-1/4 size-2/3 hover:scale-110 transform transition-transform duration-500",
+      "relative rounded-lg border bg-card text-card-foreground shadow-sm lg:size-1/4  size-2/3 hover:scale-110 transform transition-transform duration-500",
       className
     )}
     {...props}
@@ -26,7 +26,7 @@ const PortfolioCardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6 h-1/4", className)}
+    className={cn("flex flex-col space-y-1.5 p-6 h-24", className)}
     {...props}
   />
 ))
@@ -59,7 +59,7 @@ const PortfolioCardDescription = React.forwardRef<
 ))
 PortfolioCardDescription.displayName = "PortfolioCardDescription"
 
-export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp';
+export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp' | 'gh-actions' | 'css' | 'javascript' | 'rust';
 
 const PortfolioCardContent = React.forwardRef<
   HTMLImageElement,
@@ -78,22 +78,27 @@ const PortfolioCardContent = React.forwardRef<
     ['styled-components', <SiStyledcomponents key="styled" size={20} />],
     ['cSharp', <SiCsharp key="cSharp" size={20} />],
     ['tailwind', <SiTailwindcss key="tailwind" size={20} />],
+    ['gh-actions', <SiGithubactions key="gh-actions" size={20} />],
+    ['javascript', <SiJavascript key="javascript" size={20} />],
+    ['css', <SiCss3 key="css" size={20} />],
+    ['rust', <SiRust key="rust" size={20} />],
   ])
 
   return(
-  <div className="w-full relative flex items-center justify-center">
-  <Image  
-     alt={alt ?? 'Imagem do projeto'} 
-     ref={ref} 
-     className={cn("w-full h-3/5 object-cover", className)} 
-     width={200}
-     height={200}
-     unoptimized
-     {...props}
-    />
-    {!hover && <div className="absolute bottom-6 h-8 flex flex-row gap-2">
-      {techsUsed?.map((tech) => Icons.get(tech))}
-    </div>}
+  <div className="w-full flex items-center justify-center aspect-video">
+    <Image  
+      alt={alt ?? 'Imagem do projeto'} 
+      ref={ref} 
+      className={cn("w-full aspect-video", className)} 
+      width={0}
+      height={0}
+      unoptimized
+      objectFit="contain"
+      {...props}
+      />
+      {!hover && <div className="absolute bottom-6 h-8 flex flex-row gap-2">
+        {techsUsed?.map((tech) => Icons.get(tech))}
+      </div>}
     </div>
 )})
 PortfolioCardContent.displayName = "PortfolioCardContent"
