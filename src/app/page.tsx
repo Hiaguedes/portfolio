@@ -43,12 +43,12 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1 overflow-y-auto">
-        <section id="main" className="flex flex-row px-12 justify-center items-center w-full gap-32 h-auto min-h-screen">
+        <section id="main" className="flex flex-col-reverse lg:flex-row px-12 justify-center items-center w-full gap-32 h-auto min-h-screen">
             <div className="max-w-xl">
-            <h2 className="mb-8 text-4xl">
+            <h2 className="mb-8 text-4xl lg:text-left text-center">
               Meu nome é <span className="text-yellow-400 inline-flex">Hiago Guedes</span>, ou apenas <span className="text-yellow-400 inline-flex">Hiaguedes</span>
             </h2>
-            <h4 className="text-gray-500">Desenvolvedor Front end</h4>
+            <h4 className="text-gray-500 lg:text-left text-center">Desenvolvedor Front end</h4>
             </div>
           <HoverCard>
             <HoverCardTrigger>
@@ -70,7 +70,7 @@ export default function Home() {
             </HoverCardContent>
           </HoverCard>
         </section>
-        <section className="w-full flex flex-col px-12" id="contacts">
+        <section className="w-full flex flex-col px-12 py-10" id="contacts">
           <h2 className="text-xl mb-6">Contatos</h2>
           <div className="flex flex-row gap-12 w-full items-center justify-center">
             <SocialCard
