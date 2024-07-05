@@ -24,6 +24,9 @@ export const metadata: Metadata = {
             <Title className="my-8 text-yellow-400">Versão</Title>
             <p>{projectPackage.version}</p>
 
+            <Title className="my-8 text-yellow-400">Versão do node</Title>
+            <p>{projectPackage.engines.node}</p>
+
             <Title className="my-8 text-yellow-400">Dependências</Title>
             <pre>{prettifyJson(projectPackage.dependencies)}</pre>
 
