@@ -5,4 +5,5 @@ export type ReposApiResponse = {
     created_at: Date;
     updated_at: Date;
     pushed_at: Date;
+    homepage?: string;
 }

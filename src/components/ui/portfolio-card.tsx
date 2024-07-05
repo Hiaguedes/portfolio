@@ -2,8 +2,9 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import Image, { ImageProps } from "next/image"
-import { SiCsharp, SiCss3, SiGithubactions, SiHtml5, SiJavascript, SiJest, SiNpm, SiReact, SiRedux, SiRust, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si"
+import { SiCsharp, SiCss3, SiGithubactions, SiHtml5, SiJavascript, SiJest, SiNpm, SiReact, SiRedux, SiRust, SiStyledcomponents, SiTailwindcss, SiTmobile, SiTypescript } from "react-icons/si"
 import { RiNextjsFill } from "react-icons/ri"
+import { CiMobile1 } from "react-icons/ci"
 
 const PorfolioCardBase = React.forwardRef<
   HTMLDivElement,
@@ -59,7 +60,7 @@ const PortfolioCardDescription = React.forwardRef<
 ))
 PortfolioCardDescription.displayName = "PortfolioCardDescription"
 
-export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp' | 'gh-actions' | 'css' | 'javascript' | 'rust' | 'html' | 'jest';
+export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp' | 'gh-actions' | 'css' | 'javascript' | 'rust' | 'html' | 'jest' | 'mobile';
 
 const PortfolioCardContent = React.forwardRef<
   HTMLImageElement,
@@ -75,7 +76,7 @@ const PortfolioCardContent = React.forwardRef<
     ['next', <RiNextjsFill key="next" size={20} />],
     ['react', <SiReact key="react" size={20} />],
     ['redux', <SiRedux key="redux" size={20} />],
-    ['styled-components', <SiStyledcomponents key="styled" size={20} />],
+    ['styled-components', <SiStyledcomponents key="styled-components" size={20} />],
     ['cSharp', <SiCsharp key="cSharp" size={20} />],
     ['tailwind', <SiTailwindcss key="tailwind" size={20} />],
     ['gh-actions', <SiGithubactions key="gh-actions" size={20} />],
@@ -84,6 +85,7 @@ const PortfolioCardContent = React.forwardRef<
     ['rust', <SiRust key="rust" size={20} />],
     ['html', <SiHtml5 key="html" size={20} />],
     ['jest', <SiJest key="jest" size={20} />],
+    ['mobile', <CiMobile1 key="mobile" size={20} />],
   ])
 
   return(

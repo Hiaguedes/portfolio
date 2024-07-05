@@ -4,11 +4,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@radix-ui/react-hover-card";
-import {
-  LucideGithub,
-  LucideInstagram,
-  LucideMail,
-} from "lucide-react";
+import { LucideGithub, LucideInstagram, LucideMail } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import personalInfo from "hiaguedes/info.json";
@@ -28,68 +24,82 @@ export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
   description: "Next + Tailwind + ShadCn",
 };
-const formatDate = (date: Date | undefined) => date ? format(date, 'dd/MM/yyyy') : ''
+const formatDate = (date: Date | undefined) =>
+  date ? format(date, "dd/MM/yyyy") : "";
 
-type IdRepo = { id: number, techsUsed: TechVariants[], src: string }
+type IdRepo = { id: number; techsUsed: TechVariants[]; src: string };
 
-const PortfolioCardBuilder = ({repos, data }: { repos: IdRepo[], data: ReposApiResponse[]  }) => {
+const PortfolioCardBuilder = ({
+  repos,
+  data,
+}: {
+  repos: IdRepo[];
+  data: ReposApiResponse[];
+}) => {
+  const components = repos.map((repo) => {
+    const locatedRepo = data.find((dataRepo) => dataRepo.id === repo.id);
+    if (!locatedRepo) return null;
 
-  const components = repos.map(repo => {
-    const locatedRepo = data.find(dataRepo => dataRepo.id === repo.id);
-    if(!locatedRepo) return null;
-
-    return (<PortfolioCard
-      techsUsed={repo.techsUsed}
-      key={locatedRepo.id}
-      title={locatedRepo.name ?? ''}
-      src={repo.src}
-      alt={`Imagem do repositorio ${locatedRepo.name}`}
-      updatedAt={formatDate(locatedRepo.updated_at) ?? ''}
-      link={locatedRepo.html_url}
-    />
-    )
-  })
-  return (<>{...components}</>)
-}
+    return (
+      <PortfolioCard
+        techsUsed={repo.techsUsed}
+        key={locatedRepo.id}
+        title={locatedRepo.name ?? ""}
+        src={repo.src}
+        alt={`Imagem do repositorio ${locatedRepo.name}`}
+        updatedAt={formatDate(locatedRepo.updated_at) ?? ""}
+        link={locatedRepo.html_url}
+        homepage={locatedRepo.homepage}
+      />
+    );
+  });
+  return <>{...components}</>;
+};
 
 export default async function Home() {
-
   const data = await getRepos();
   // console.log(data)
 
   const ProjectsIds: IdRepo[] = [
     {
       id: Repos.Id.HIAGUEDES,
-      techsUsed: ['npm', 'gh-actions', 'typescript'],
-      src: Repos.Assets.HIAGUEDES
-  }, {
+      techsUsed: ["npm", "gh-actions", "typescript"],
+      src: Repos.Assets.HIAGUEDES,
+    },
+    {
       id: Repos.Id.IP_TRACK,
-      techsUsed: ['javascript', 'css', 'html'],
-      src: Repos.Assets.IP_TRACK
-  },
-  {
-    id: Repos.Id.LINK_AGREGATOR,
-    techsUsed: ['react', 'styled-components', 'typescript'],
-    src: Repos.Assets.LINK_AGREGATOR
-},{
-  id: Repos.Id.QUIZ_WEB,
-  techsUsed: ['next', 'javascript'],
-  src: Repos.Assets.QUIZ_WEB
-},
-];
-
+      techsUsed: ["javascript", "css", "html"],
+      src: Repos.Assets.IP_TRACK,
+    },
+    {
+      id: Repos.Id.LINK_AGREGATOR,
+      techsUsed: ["react", "styled-components", "typescript"],
+      src: Repos.Assets.LINK_AGREGATOR,
+    },
+    {
+      id: Repos.Id.QUIZ_WEB,
+      techsUsed: ["next", "javascript"],
+      src: Repos.Assets.QUIZ_WEB,
+    },
+  ];
 
   return (
     <>
       <Header />
       <Main>
-        <Section id="main" className="flex flex-col-reverse lg:flex-row justify-center items-center min-h-screen">
-            <div className="max-w-xl">
+        <Section
+          id="main"
+          className="flex flex-col-reverse lg:flex-row justify-center items-center min-h-screen"
+        >
+          <div className="max-w-xl">
             <Title className="mb-8 lg:text-left text-center">
-              Meu nome é <span className="text-yellow-400 inline-flex">Hiago Guedes</span>, ou apenas <span className="text-yellow-400 inline-flex">Hiaguedes</span>
+              Meu nome é{" "}
+              <span className="text-yellow-400 inline-flex">Hiago Guedes</span>,
+              ou apenas{" "}
+              <span className="text-yellow-400 inline-flex">Hiaguedes</span>
             </Title>
             <Body>Desenvolvedor Front end</Body>
-            </div>
+          </div>
           <HoverCard>
             <HoverCardTrigger>
               <div className="relative flex items-center justify-center">
@@ -140,15 +150,14 @@ export default async function Home() {
           </Body>
 
           <div className="my-6 flex flex-row gap-12 flex-wrap">
-              <PortfolioCardBuilder repos={ProjectsIds} data={data}  />
+            <PortfolioCardBuilder repos={ProjectsIds} data={data} />
           </div>
         </Section>
         <Section id="blog">
           <Subtitle className="mb-2">Blog</Subtitle>
           <Body>O que ando escrevendo</Body>
-          
         </Section>
-      <Footer className="" />
+        <Footer className="" />
       </Main>
     </>
   );
