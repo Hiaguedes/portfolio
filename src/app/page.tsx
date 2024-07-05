@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   HoverCard,
@@ -9,14 +8,11 @@ import {
   LucideGithub,
   LucideInstagram,
   LucideMail,
-  LucideMenu,
 } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import personalInfo from "hiaguedes/info.json";
 import { SocialCard } from "@/components/ui/social-cards";
-import { Footer } from "@/components/ui/footer";
 
 import Blob from "@/components/ui/blob";
 import PortfolioCard from "@/components/PortfolioCard";
@@ -24,15 +20,12 @@ import { ReposId } from "@/helpers/repo/reposIdMap";
 import { format } from "date-fns";
 import { getRepos } from "@/helpers/repo/getRepos";
 import { Github } from "@/helpers/github/essentials";
+import { Header, Main, Section, Footer } from "@/components/ui/page-elements";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
   description: "Next + Tailwind + ShadCn",
 };
-
-const linkCurriculum =
-  "https://goldenrod-ocelot-343.notion.site/Hiago-Guedes-Curriculum-729abc1fc9ae4876a06897ce7b4d2469";
-
 
 export default async function Home() {
 
@@ -42,18 +35,9 @@ export default async function Home() {
 
   return (
     <>
-      <header className="flex justify-between items-center flex-row w-full border-b-2 border-yellow-300 p-5 h-auto sticky top-0 z-10">
-        <LucideMenu className="cursor-pointer" />
-        <div>
-          <Button>
-            <Link href={linkCurriculum} target="__blank">
-              Baixar Curriculo
-            </Link>
-          </Button>
-        </div>
-      </header>
-      <main className="flex-1 overflow-y-auto">
-        <section id="main" className="flex flex-col-reverse lg:flex-row px-12 justify-center items-center w-full gap-32 h-auto min-h-screen">
+      <Header />
+      <Main>
+        <Section id="main" className="flex flex-col-reverse lg:flex-row justify-center items-center min-h-screen">
             <div className="max-w-xl">
             <h2 className="mb-8 text-4xl lg:text-left text-center">
               Meu nome é <span className="text-yellow-400 inline-flex">Hiago Guedes</span>, ou apenas <span className="text-yellow-400 inline-flex">Hiaguedes</span>
@@ -79,8 +63,8 @@ export default async function Home() {
               </Card>
             </HoverCardContent>
           </HoverCard>
-        </section>
-        <section className="w-full flex flex-col px-12 py-10" id="contacts">
+        </Section>
+        <Section id="contacts">
           <h2 className="text-xl mb-6">Contatos</h2>
           <div className="flex gap-12 w-full items-center justify-center sm:flex-row flex-col">
             <SocialCard
@@ -102,8 +86,8 @@ export default async function Home() {
               userName="hiagorguedes"
             />
           </div>
-        </section>
-        <section className="w-full flex flex-col px-12" id="projects">
+        </Section>
+        <Section id="projects">
           <h2 className="text-xl mb-2">Projetos</h2>
           <p className="text-gray-500">
             Projetos de front-end, projetos de back-end, projetos inacabados
@@ -129,13 +113,13 @@ export default async function Home() {
             link={data.find(repo => repo.id === ReposId.IP_TRACK)?.html_url}
            /> 
           </div>
-        </section>
-        <section className="w-full flex flex-col px-12" id="blog">
+        </Section>
+        <Section id="blog">
           <h2 className="text-xl mb-2">Blog</h2>
           <p className="text-gray-500">O que ando escrevendo</p>
-        </section>
+        </Section>
       <Footer className="" />
-      </main>
+      </Main>
     </>
   );
 }
