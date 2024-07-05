@@ -66,7 +66,12 @@ export default async function Home() {
       id: Repos.Id.IP_TRACK,
       techsUsed: ['javascript', 'css', 'html'],
       src: Repos.Assets.IP_TRACK
-  }
+  },
+  {
+    id: Repos.Id.LINK_AGREGATOR,
+    techsUsed: ['react', 'styled-components', 'typescript'],
+    src: Repos.Assets.LINK_AGREGATOR
+},
 ];
 
 
