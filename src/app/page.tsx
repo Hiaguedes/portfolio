@@ -21,6 +21,7 @@ import { format } from "date-fns";
 import { getRepos } from "@/helpers/repo/getRepos";
 import { Github } from "@/helpers/github/essentials";
 import { Header, Main, Section, Footer } from "@/components/ui/page-elements";
+import { Body, Subtitle, Title } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -39,10 +40,10 @@ export default async function Home() {
       <Main>
         <Section id="main" className="flex flex-col-reverse lg:flex-row justify-center items-center min-h-screen">
             <div className="max-w-xl">
-            <h2 className="mb-8 text-4xl lg:text-left text-center">
+            <Title className="mb-8 lg:text-left text-center">
               Meu nome é <span className="text-yellow-400 inline-flex">Hiago Guedes</span>, ou apenas <span className="text-yellow-400 inline-flex">Hiaguedes</span>
-            </h2>
-            <h4 className="text-gray-500 lg:text-left text-center">Desenvolvedor Front end</h4>
+            </Title>
+            <Body>Desenvolvedor Front end</Body>
             </div>
           <HoverCard>
             <HoverCardTrigger>
@@ -65,7 +66,7 @@ export default async function Home() {
           </HoverCard>
         </Section>
         <Section id="contacts">
-          <h2 className="text-xl mb-6">Contatos</h2>
+          <Subtitle className="mb-6">Contatos</Subtitle>
           <div className="flex gap-12 w-full items-center justify-center sm:flex-row flex-col">
             <SocialCard
               icon={<LucideInstagram />}
@@ -88,10 +89,10 @@ export default async function Home() {
           </div>
         </Section>
         <Section id="projects">
-          <h2 className="text-xl mb-2">Projetos</h2>
-          <p className="text-gray-500">
+          <Subtitle className="mb-2">Projetos</Subtitle>
+          <Body>
             Projetos de front-end, projetos de back-end, projetos inacabados
-          </p>
+          </Body>
 
           <div className="my-6 flex flex-row gap-12 flex-wrap">
             <PortfolioCard 
@@ -115,8 +116,8 @@ export default async function Home() {
           </div>
         </Section>
         <Section id="blog">
-          <h2 className="text-xl mb-2">Blog</h2>
-          <p className="text-gray-500">O que ando escrevendo</p>
+          <Subtitle className="mb-2">Blog</Subtitle>
+          <Body>O que ando escrevendo</Body>
         </Section>
       <Footer className="" />
       </Main>
