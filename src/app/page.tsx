@@ -16,23 +16,59 @@ import { SocialCard } from "@/components/ui/social-cards";
 
 import Blob from "@/components/ui/blob";
 import PortfolioCard from "@/components/PortfolioCard";
-import { ReposId } from "@/helpers/repo/reposIdMap";
 import { format } from "date-fns";
 import { getRepos } from "@/helpers/repo/getRepos";
-import { Github } from "@/helpers/github/essentials";
 import { Header, Main, Section, Footer } from "@/components/ui/page-elements";
 import { Body, Subtitle, Title } from "@/components/ui/typography";
+import { TechVariants } from "@/components/ui/portfolio-card";
+import { ReposApiResponse } from "@/infra/Repos/reposApiResponse";
+import { Repos } from "@/helpers/repo/enum";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
   description: "Next + Tailwind + ShadCn",
 };
+const formatDate = (date: Date | undefined) => date ? format(date, 'dd/MM/yyyy') : ''
+
+type IdRepo = { id: number, techsUsed: TechVariants[], src: string }
+
+const PortfolioCardBuilder = ({repos, data }: { repos: IdRepo[], data: ReposApiResponse[]  }) => {
+
+  const components = repos.map(repo => {
+    const locatedRepo = data.find(dataRepo => dataRepo.id === repo.id);
+    if(!locatedRepo) return null;
+
+    return (<PortfolioCard
+      techsUsed={repo.techsUsed}
+      key={locatedRepo.id}
+      title={locatedRepo.name ?? ''}
+      src={repo.src}
+      alt={`Imagem do repositorio ${locatedRepo.name}`}
+      updatedAt={formatDate(locatedRepo.updated_at) ?? ''}
+      link={locatedRepo.html_url}
+    />
+    )
+  })
+  return (<>{...components}</>)
+}
 
 export default async function Home() {
 
   const data = await getRepos();
   // console.log(data)
-  const formatDate = (date: Date | undefined) => date ? format(date, 'dd/MM/yyyy') : ''
+
+  const ProjectsIds: IdRepo[] = [
+    {
+      id: Repos.Id.HIAGUEDES,
+      techsUsed: ['npm', 'gh-actions', 'typescript'],
+      src: Repos.Assets.HIAGUEDES
+  }, {
+      id: Repos.Id.IP_TRACK,
+      techsUsed: ['javascript', 'css', 'html'],
+      src: Repos.Assets.IP_TRACK
+  }
+];
+
 
   return (
     <>
@@ -95,29 +131,13 @@ export default async function Home() {
           </Body>
 
           <div className="my-6 flex flex-row gap-12 flex-wrap">
-            <PortfolioCard 
-            key={ReposId.HIAGUEDES}
-            title={data.find(repo => repo.id === ReposId.HIAGUEDES)?.name ?? ''}
-            src={`${Github.ASSETS_URL}/${Github.OWNER}/Hiaguedes/${Github.MainBranches.MAIN}/assets/preview-hiaguedes.png`}
-            alt={`Imagem do repositorio ${data.find(repo => repo.id === ReposId.HIAGUEDES)?.name}`}
-            techsUsed={['npm', 'gh-actions', 'typescript']}
-            updatedAt={formatDate(data.find(repo => repo.id === ReposId.HIAGUEDES)?.updated_at) ?? ''}
-            link={data.find(repo => repo.id === ReposId.HIAGUEDES)?.html_url}
-           /> 
-            <PortfolioCard 
-            key={ReposId.IP_TRACK}
-            title={data.find(repo => repo.id === ReposId.IP_TRACK)?.name ?? ''}
-            src={`${Github.ASSETS_URL}/${Github.OWNER}/ip-address-tracker-master/${Github.MainBranches.MASTER}/design/desktop-preview.jpg`}
-            alt={`Imagem do repositorio ${data.find(repo => repo.id === ReposId.IP_TRACK)?.name}`}
-            techsUsed={['javascript' ,'css', 'html']}
-            updatedAt={formatDate(data.find(repo => repo.id === ReposId.IP_TRACK)?.updated_at) ?? ''}
-            link={data.find(repo => repo.id === ReposId.IP_TRACK)?.html_url}
-           /> 
+              <PortfolioCardBuilder repos={ProjectsIds} data={data}  />
           </div>
         </Section>
         <Section id="blog">
           <Subtitle className="mb-2">Blog</Subtitle>
           <Body>O que ando escrevendo</Body>
+          
         </Section>
       <Footer className="" />
       </Main>

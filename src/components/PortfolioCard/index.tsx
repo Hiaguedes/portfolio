@@ -6,7 +6,7 @@ import { ImageProps } from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
-type PortfolioCardProps = { 
+export type PortfolioCardProps = { 
     title: string;
     fakeHover?: boolean,
     techsUsed?: TechVariants[],
