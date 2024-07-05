@@ -36,7 +36,7 @@ export const Header:FC<HeaderProps> = ({ goBack }) => {
     return (
         <header className="flex justify-between items-center flex-row w-full border-b-2 border-yellow-300 p-5 h-auto sticky top-0 z-10">
         <div className="flex flex-row gap-2">
-            {goBack && <LucideChevronLeft onClick={back} />}
+            {goBack && <LucideChevronLeft className="cursor-pointer" onClick={back} />}
             <LucideMenu className="cursor-pointer" />
         </div>
         <div>
