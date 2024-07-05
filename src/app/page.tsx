@@ -71,6 +71,10 @@ export default async function Home() {
     id: Repos.Id.LINK_AGREGATOR,
     techsUsed: ['react', 'styled-components', 'typescript'],
     src: Repos.Assets.LINK_AGREGATOR
+},{
+  id: Repos.Id.QUIZ_WEB,
+  techsUsed: ['next', 'javascript'],
+  src: Repos.Assets.QUIZ_WEB
 },
 ];
 

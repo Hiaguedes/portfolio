@@ -6,3 +6,12 @@ https://app.haikei.app/
 https://opengraph.githubassets.com/{hash}/{owner}/{repo} -> meta
 
 https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{path/to/image}
+
+Pra pegar o id do repo 
+gh repo view OWNER/REPO --json id 
+ter o git cli instalado
+
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/OWNER/REPO -> no ubuntu ou no wsl pois o suporte do gh e limitado
