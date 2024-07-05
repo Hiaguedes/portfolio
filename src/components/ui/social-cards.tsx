@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-import Link from "next/link"
+import { LinkText } from "./typography";
 
 export interface SocialCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -20,7 +20,7 @@ const SocialCard = React.forwardRef<
     <div ref={ref} className={cn("flex flex-col gap-2 justify-center items-center", className)} {...props}>
     {icon}
     <p className="text-gray-500">{name}</p>
-    <Link className="link-underline neon-glow" target="__blank" href={link}>{userName}</Link>
+    <LinkText className="link-underline neon-glow" target="__blank" href={link}>{userName}</LinkText>
   </div>
 )});
 

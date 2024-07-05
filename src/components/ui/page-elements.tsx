@@ -6,6 +6,7 @@ import { Button } from "./button"
 import { LucideChevronLeft, LucideMenu } from "lucide-react"
 import personalInfo from 'hiaguedes/info.json'
 import { useRouter } from "next/navigation"
+import { LinkText } from "./typography"
 
 export const Main = React.forwardRef<
     HTMLDivElement,
@@ -65,7 +66,7 @@ export const Footer = React.forwardRef<
     )}
     {...props}
     >
-        <p>Desenvolvido por {personalInfo.name}, clique <Link className="text-yellow-300" href="/about">aqui</Link> pra saber mais detalhes desse projeto</p>
+        <p>Desenvolvido por {personalInfo.name}, clique <LinkText variant="emphasis" href="/about">aqui</LinkText> pra saber mais detalhes desse projeto</p>
     </footer>
 )});
 
