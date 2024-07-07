@@ -4,7 +4,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@radix-ui/react-hover-card";
-import { LucideGithub, LucideInstagram, LucideMail } from "lucide-react";
+import { LucideGithub, LucideInstagram, LucideLinkedin, LucideMail } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import personalInfo from "hiaguedes/info.json";
@@ -19,6 +19,7 @@ import { Body, Subtitle, Title } from "@/components/ui/typography";
 import { TechVariants } from "@/components/ui/portfolio-card";
 import { ReposApiResponse } from "@/infra/Repos/reposApiResponse";
 import { Repos } from "@/helpers/repo/enum";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -89,60 +90,30 @@ export default async function Home() {
       <Main>
         <Section
           id="main"
-          className="flex flex-col-reverse lg:flex-row justify-center items-center min-h-screen"
+          className="flex flex-col justify-center items-center min-h-screen"
         >
-          <div className="max-w-xl">
-            <Title className="mb-8 lg:text-left text-center">
-              Meu nome é{" "}
-              <span className="text-yellow-400 inline-flex">Hiago Guedes</span>,
-              ou apenas{" "}
-              <span className="text-yellow-400 inline-flex">Hiaguedes</span>
+          <div className="max-w-xl flex flex-col gap-4">
+            <Title className="text-center text-6xl">
+              Hiaguedes
             </Title>
-            <Body>Desenvolvedor Front end</Body>
+            <Body className="text-center">Desenvolvedor Front End</Body>
           </div>
-          <HoverCard>
-            <HoverCardTrigger>
-              <div className="relative flex items-center justify-center">
-                <Image
-                  className="z-10 cursor-pointer absolute"
-                  src="/assets/avatar.png"
-                  alt="Avatar Author"
-                  width={300}
-                  height={300}
-                />
-                <Blob />
-              </div>
-            </HoverCardTrigger>
-            <HoverCardContent>
-              <Card className="h-30 p-4 flex flex-row m-4 gap-2">
-                <p>Ola!</p>
-              </Card>
-            </HoverCardContent>
-          </HoverCard>
-        </Section>
-        <Section id="contacts">
-          <Subtitle className="mb-6">Contatos</Subtitle>
-          <div className="flex gap-12 w-full items-center justify-center sm:flex-row flex-col">
-            <SocialCard
-              icon={<LucideInstagram />}
-              name="Instagram"
-              link={personalInfo.socials.personal.instagram}
-              userName="@hiago.guedes"
-            />
-            <SocialCard
-              icon={<LucideGithub />}
-              name="Github"
-              link={personalInfo.socials.professional.github}
-              userName="hiaguedes"
-            />
-            <SocialCard
-              icon={<LucideMail />}
-              name="Email"
-              link={"mailto:" + personalInfo.socials.professional.email}
-              userName="hiagorguedes"
-            />
+          <div className="flex flex-row gap-12 items-center mt-20">
+          <Link target="__blank" href={"mailto:" + personalInfo.socials.professional.email}>
+            <LucideMail size={30} />
+          </Link>
+          <Link target="__blank" href={personalInfo.socials.professional.linkedin}>
+            <LucideLinkedin size={30} />
+          </Link>
+          <Link target="__blank" href={personalInfo.socials.personal.instagram}>
+          <LucideInstagram size={30} />
+          </Link>
+          <Link target="__blank" href={personalInfo.socials.professional.github}>
+          <LucideGithub size={30} />
+          </Link>
           </div>
         </Section>
+
         <Section id="projects">
           <Subtitle className="mb-2">Projetos</Subtitle>
           <Body>
