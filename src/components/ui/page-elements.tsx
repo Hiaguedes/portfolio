@@ -1,7 +1,7 @@
 'use client'
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 import { Button } from "./button"
 import { LucideChevronLeft, LucideMenu } from "lucide-react"
 import personalInfo from 'hiaguedes/info.json'
@@ -30,10 +30,32 @@ type HeaderProps = {
     goBack?: boolean;
 }
 export const Header:FC<HeaderProps> = ({ goBack }) => {
-    const { back } = useRouter();
-    const linkCurriculum =
-  "https://goldenrod-ocelot-343.notion.site/Hiago-Guedes-Curriculum-729abc1fc9ae4876a06897ce7b4d2469";
+    const { back } = useRouter();    
   
+  const handleDownloadClickButton = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+
+    e.preventDefault()
+    const response = await fetch(`/api/pdf`);
+
+    const content = await response.json() as any;
+    const pdfUrl = content?.file.file.url;
+    const pdfName = content?.file.name
+
+    fetch(pdfUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.href = url;
+            link.download = pdfName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        })
+    
+  }
+
     return (
         <header className="flex justify-between items-center flex-row w-full border-b-2 border-yellow-300 p-5 h-auto sticky top-0 z-10">
         <div className="flex flex-row gap-2">
@@ -41,10 +63,10 @@ export const Header:FC<HeaderProps> = ({ goBack }) => {
             <LucideMenu className="cursor-pointer" />
         </div>
         <div>
-          <Button>
-            <Link href={linkCurriculum} target="__blank">
+          <Button onClick={e => handleDownloadClickButton(e)}>
+            {/* <Link href="" onClick={handleDownloadClickButton}> */}
               Baixar Curriculo
-            </Link>
+            {/* </Link> */}
           </Button>
         </div>
       </header>
