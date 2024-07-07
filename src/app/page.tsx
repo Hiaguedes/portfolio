@@ -20,6 +20,7 @@ import { TechVariants } from "@/components/ui/portfolio-card";
 import { ReposApiResponse } from "@/infra/Repos/reposApiResponse";
 import { Repos } from "@/helpers/repo/enum";
 import Link from "next/link";
+import { SectionsIdsEnum } from "@/helpers/SectionsIdEnum";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -89,8 +90,8 @@ export default async function Home() {
       <Header />
       <Main>
         <Section
-          id="main"
-          className="flex flex-col justify-center items-center min-h-screen"
+          id={SectionsIdsEnum.MAIN}
+          className="flex flex-col justify-center items-center h-full"
         >
           <div className="max-w-xl flex flex-col gap-4">
             <Title className="text-center text-6xl ">
@@ -114,7 +115,7 @@ export default async function Home() {
           </div>
         </Section>
 
-        <Section id="projects">
+        <Section id={SectionsIdsEnum.PROJECTS}>
           <Subtitle className="mb-2">Projetos</Subtitle>
           <Body>
             Projetos de front-end, projetos de back-end, projetos inacabados
@@ -124,7 +125,7 @@ export default async function Home() {
             <PortfolioCardBuilder repos={ProjectsIds} data={data} />
           </div>
         </Section>
-        <Section id="blog">
+        <Section id={SectionsIdsEnum.BLOG}>
           <Subtitle className="mb-2">Blog</Subtitle>
           <Body>O que ando escrevendo</Body>
         </Section>
