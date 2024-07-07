@@ -93,22 +93,22 @@ export default async function Home() {
           className="flex flex-col justify-center items-center min-h-screen"
         >
           <div className="max-w-xl flex flex-col gap-4">
-            <Title className="text-center text-6xl">
+            <Title className="text-center text-6xl ">
               Hiaguedes
             </Title>
             <Body className="text-center">Desenvolvedor Front End</Body>
           </div>
           <div className="flex flex-row gap-12 items-center mt-20">
-          <Link target="__blank" href={"mailto:" + personalInfo.socials.professional.email}>
+          <Link className="hover:text-yellow-400 hover:scale-125 transition-all ease-linear" target="__blank" href={"mailto:" + personalInfo.socials.professional.email}>
             <LucideMail size={30} />
           </Link>
-          <Link target="__blank" href={personalInfo.socials.professional.linkedin}>
+          <Link className="hover:text-yellow-400 hover:scale-125 transition-all ease-linear" target="__blank" href={personalInfo.socials.professional.linkedin}>
             <LucideLinkedin size={30} />
           </Link>
-          <Link target="__blank" href={personalInfo.socials.personal.instagram}>
+          <Link className="hover:text-yellow-400 hover:scale-125 transition-all ease-linear" target="__blank" href={personalInfo.socials.personal.instagram}>
           <LucideInstagram size={30} />
           </Link>
-          <Link target="__blank" href={personalInfo.socials.professional.github}>
+          <Link className="hover:text-yellow-400 hover:scale-125 transition-all ease-linear" target="__blank" href={personalInfo.socials.professional.github}>
           <LucideGithub size={30} />
           </Link>
           </div>
@@ -120,7 +120,7 @@ export default async function Home() {
             Projetos de front-end, projetos de back-end, projetos inacabados
           </Body>
 
-          <div className="my-6 flex flex-row gap-12 flex-wrap">
+          <div className="my-6 flex flex-row gap-12 flex-wrap items-center">
             <PortfolioCardBuilder repos={ProjectsIds} data={data} />
           </div>
         </Section>
