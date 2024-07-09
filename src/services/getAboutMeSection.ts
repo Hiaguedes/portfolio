@@ -4,7 +4,7 @@ const getAboutMeSection = async () => {
     const response = await fetch(api, { cache: 'no-cache' });
 
     if(!response.ok){
-        return '';
+        return ''
     }
 
     return response.json()
