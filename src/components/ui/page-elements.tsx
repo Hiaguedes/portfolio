@@ -22,7 +22,7 @@ export const Section = React.forwardRef<
         id: string;
     }
 >(({className, children, id, ...props}, ref) => {
-    return <section ref={ref} id={id} className={cn(className, "w-full flex flex-col px-12 py-10")} {...props}>{children}</section>
+    return <section ref={ref} id={id} className={cn(className, "w-full flex flex-col px-12 py-5")} {...props}>{children}</section>
 });
 Section.displayName = "Section"
 

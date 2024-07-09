@@ -6,13 +6,14 @@ import PortfolioCard from "@/components/PortfolioCard";
 import { format } from "date-fns";
 import { getRepos } from "@/helpers/repo/getRepos";
 import { Header, Main, Section, Footer } from "@/components/ui/page-elements";
-import { Body, Subtitle, Title } from "@/components/ui/typography";
+import { Body, Subtitle } from "@/components/ui/typography";
 import { TechVariants } from "@/components/ui/portfolio-card";
 import { ReposApiResponse } from "@/infra/Repos/reposApiResponse";
 import { Repos } from "@/helpers/repo/enum";
 import Link from "next/link";
 import { SectionsIdsEnum } from "@/helpers/SectionsIdEnum";
 import HoverTextTitle from "@/components/ui/hover-title-text";
+import getAboutMeSection from "@/services/getAboutMeSection";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -52,8 +53,8 @@ const PortfolioCardBuilder = ({
 
 export default async function Home() {
   const data = await getRepos();
-  // console.log(data)
-
+  const aboutMe = await getAboutMeSection();
+  
   const ProjectsIds: IdRepo[] = [
     {
       id: Repos.Id.HIAGUEDES,
@@ -105,6 +106,10 @@ export default async function Home() {
           </div>
         </Section>
 
+        <Section id={SectionsIdsEnum.ABOUT_ME}>
+        <Subtitle className="mb-2">Sobre mim</Subtitle>
+          <p>{aboutMe?.paragraph.rich_text[0].text.content ?? ''}</p>
+        </Section>
         <Section id={SectionsIdsEnum.PROJECTS}>
           <Subtitle className="mb-2">Projetos</Subtitle>
           <Body>
