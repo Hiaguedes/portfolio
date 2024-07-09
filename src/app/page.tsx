@@ -51,7 +51,7 @@ export default async function Home() {
 
         <Section id={SectionsIdsEnum.ABOUT_ME}>
         <Subtitle className="mb-2">Sobre mim</Subtitle>
-          <p>{aboutMe?.paragraph.rich_text[0].text.content ?? ''}</p>
+          <p>{aboutMe ? aboutMe?.paragraph.rich_text[0].text.content : ''}</p>
         </Section>
         <Section id={SectionsIdsEnum.PROJECTS}>
           <Subtitle className="mb-2">Projetos</Subtitle>
