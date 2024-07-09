@@ -68,6 +68,40 @@
     overflow-y: auto;
   }
 
+  &.split-text {
+    display: inline-flex;
+}
+
+& .split-char {
+    font-weight: 400;
+    transition: font-weight 0.5s ease, color 0.5s ease;
+
+    &:hover {
+        font-weight: 800;
+        color: rgb(253 224 71);
+    }
+
+    &:hover+.split-char {
+        font-weight: 600;
+        color: rgb(253 224 71);
+    }
+
+    &:hover+.split-char+.split-char {
+        font-weight: 400;
+        color: rgb(253 224 71);
+    }
+
+    &:has(+ .split-char:hover) {
+        font-weight: 600;
+        color: rgb(253 224 71);
+    }
+
+    &:has(+ .split-char + .split-char:hover) {
+        font-weight: 400;
+        color: rgb(253 224 71);
+    }
+}
+
     :root {
       --background: 0 0% 100%;
       --foreground: 224 71.4% 4.1%;

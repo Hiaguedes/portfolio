@@ -1,7 +1,6 @@
 'use client'
 import { cn } from "@/lib/utils"
-import Link from "next/link"
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
 import { Button } from "./button"
 import { LucideChevronLeft, LucideMenu } from "lucide-react"
 import personalInfo from 'hiaguedes/info.json'
@@ -72,7 +71,7 @@ export const Header:FC<HeaderProps> = ({ goBack }) => {
         </div>
         <div>
           <Button onClick={e => handleDownloadClickButton(e)}>
-              Baixar Curriculo
+              Baixar Currículo
           </Button>
         </div>
       </header>

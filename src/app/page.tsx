@@ -1,16 +1,7 @@
-import { Card } from "@/components/ui/card";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@radix-ui/react-hover-card";
 import { LucideGithub, LucideInstagram, LucideLinkedin, LucideMail } from "lucide-react";
 import { Metadata } from "next";
-import Image from "next/image";
 import personalInfo from "hiaguedes/info.json";
-import { SocialCard } from "@/components/ui/social-cards";
 
-import Blob from "@/components/ui/blob";
 import PortfolioCard from "@/components/PortfolioCard";
 import { format } from "date-fns";
 import { getRepos } from "@/helpers/repo/getRepos";
@@ -21,6 +12,7 @@ import { ReposApiResponse } from "@/infra/Repos/reposApiResponse";
 import { Repos } from "@/helpers/repo/enum";
 import Link from "next/link";
 import { SectionsIdsEnum } from "@/helpers/SectionsIdEnum";
+import HoverTextTitle from "@/components/ui/hover-title-text";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",
@@ -94,9 +86,7 @@ export default async function Home() {
           className="flex flex-col justify-center items-center h-full"
         >
           <div className="max-w-xl flex flex-col gap-4">
-            <Title className="text-center text-6xl ">
-              Hiaguedes
-            </Title>
+            <HoverTextTitle text={"Hiaguedes"} />
             <Body className="text-center">Desenvolvedor Front End</Body>
           </div>
           <div className="flex flex-row gap-12 items-center mt-20">
