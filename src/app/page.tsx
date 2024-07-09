@@ -13,8 +13,20 @@ import PortfolioCardBuilder from "@/components/ui/PortfolioCardBuilder";
 import getAboutMeSection from "@/services/getAboutMeSection";
 
 export const metadata: Metadata = {
+  authors: {
+    name: 'Hiago Guedes',
+    url: 'https://github.com/Hiaguedes'
+  },
   title: "Portfolio - Hiago/Home",
-  description: "Project Made With Next, Tailwind and ShadCn",
+  description: "Project Made With Next.js, Tailwind and shadcn",
+  keywords: ['hiaguedes', 'Hiago Riba Guedes', 'portfolio', 'frontend', 'hiago guedes', 'freelancer', 'website', 'freela', 'sites', 'front-end', 'developer'],
+  openGraph: {
+    title: 'Portfolio - Hiago/Home',
+    description: 'Project Made With Next.js, Tailwind and shadcn',
+    images: {
+      url: 'assets/preview.png'
+    }
+  }
 };
 
 export default async function Home() {
