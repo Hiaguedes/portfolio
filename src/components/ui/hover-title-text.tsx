@@ -6,12 +6,12 @@ export const HoverTextTitle = ({ text, className }: { text: string, className?: 
     const letters = text.split('');
   
     return (
-      <div className="split-text">
+      <div className="split-text text-center">
         {letters.map((letter, index) => (
           <motion.h2
             key={index}
             whileHover={{ scale: 1.2 }}
-            className={cn("text-6xl split-char inline-block cursor-default cursor transition-all ease-linear", className)}
+            className={cn("text-4xl xs:text-6xl split-char inline-block cursor-default cursor transition-all ease-linear", className)}
             
           >
             {letter}

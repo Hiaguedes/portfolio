@@ -68,9 +68,9 @@ export const Header:FC<HeaderProps> = ({ goBack }) => {
         <header className="flex justify-between items-center flex-row w-full border-b-2 border-yellow-300 p-5 h-auto sticky top-0 z-10">
         <div className="flex flex-row gap-2">
             {goBack && <LucideChevronLeft className="cursor-pointer" onClick={back} />}
-              <HoverCard>
+              <HoverCard openDelay={0}>
                 <HoverCardTrigger>
-                  <LucideMenu />
+                  <LucideMenu className="xs:block hidden" />
                 </HoverCardTrigger>
               <HoverCardContent align="center" side="right" >
                 <div className="flex flex-row p-0  ml-4">
