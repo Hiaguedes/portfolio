@@ -115,10 +115,10 @@ export default async function Home() {
             <PortfolioCardBuilder repos={ProjectsIds} data={data} />
           </div>
         </Section>
-        <Section id={SectionsIdsEnum.BLOG}>
+        {/* <Section id={SectionsIdsEnum.BLOG}>
           <Subtitle className="mb-2">Blog</Subtitle>
           <Body>O que ando escrevendo</Body>
-        </Section>
+        </Section> */}
         <Footer className="" />
       </Main>
     </>
