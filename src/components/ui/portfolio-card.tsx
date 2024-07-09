@@ -97,7 +97,6 @@ const PortfolioCardContent = React.forwardRef<
       width={0}
       height={0}
       unoptimized
-      objectFit="contain"
       {...props}
       />
       {!hover && <div className="absolute bottom-6 h-8 flex flex-row gap-2">

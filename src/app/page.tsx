@@ -8,9 +8,9 @@ import { Body, Subtitle } from "@/components/ui/typography";
 import Link from "next/link";
 import { SectionsIdsEnum } from "@/helpers/SectionsIdEnum";
 import HoverTextTitle from "@/components/ui/hover-title-text";
-import getAboutMeSection from "@/services/getAboutMeSection";
 import ProjectsIds from "@/helpers/ProjectsIds";
 import PortfolioCardBuilder from "@/components/ui/PortfolioCardBuilder";
+import getAboutMeSection from "@/services/getAboutMeSection";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/Home",

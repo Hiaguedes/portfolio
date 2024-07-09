@@ -7,7 +7,7 @@ import personalInfo from 'hiaguedes/info.json'
 import { useRouter } from "next/navigation"
 import { LinkText } from "./typography"
 import { SectionsIdsEnum } from "@/helpers/SectionsIdEnum"
-import { HoverCard, HoverCardContent, HoverCardPortal, HoverCardTrigger } from "@radix-ui/react-hover-card"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@radix-ui/react-hover-card"
 
 export const Main = React.forwardRef<
     HTMLDivElement,
