@@ -7,6 +7,7 @@ import personalInfo from 'hiaguedes/info.json'
 import { useRouter } from "next/navigation"
 import { LinkText } from "./typography"
 import { SectionsIdsEnum } from "@/helpers/SectionsIdEnum"
+import { HoverCard, HoverCardContent, HoverCardPortal, HoverCardTrigger } from "@radix-ui/react-hover-card"
 
 export const Main = React.forwardRef<
     HTMLDivElement,
@@ -67,7 +68,20 @@ export const Header:FC<HeaderProps> = ({ goBack }) => {
         <header className="flex justify-between items-center flex-row w-full border-b-2 border-yellow-300 p-5 h-auto sticky top-0 z-10">
         <div className="flex flex-row gap-2">
             {goBack && <LucideChevronLeft className="cursor-pointer" onClick={back} />}
-              <LucideMenu className="cursor-pointer" onClick={() => handleScrollTo(SectionsIdsEnum.PROJECTS)} />
+              <HoverCard>
+                <HoverCardTrigger>
+                  <LucideMenu />
+                </HoverCardTrigger>
+              <HoverCardContent align="center" side="right" >
+                <div className="flex flex-row p-0  ml-4">
+                  <>
+                    <Button variant="ghost" onClick={() => handleScrollTo(SectionsIdsEnum.MAIN)}>Main</Button>
+                    <Button variant="ghost" onClick={() => handleScrollTo(SectionsIdsEnum.ABOUT_ME)}>Sobre Mim</Button>
+                    <Button variant="ghost" onClick={() => handleScrollTo(SectionsIdsEnum.PROJECTS)}>Projetos</Button>
+                </>
+                </div>
+              </HoverCardContent>
+              </HoverCard>
         </div>
         <div>
           <Button onClick={e => handleDownloadClickButton(e)}>
