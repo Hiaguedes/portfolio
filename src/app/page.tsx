@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const data = await getRepos();
-  const aboutMe = await (await getAboutMeSection()).json();
+  const aboutMe = await getAboutMeSection();
 
   return (
     <>
