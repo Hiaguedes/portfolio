@@ -4,7 +4,7 @@ const getAboutMeSection = async () => {
     const response = await fetch(api, { cache: 'no-cache' });
 
     if(!response.ok){
-        throw new Error('Failed to fetch data');
+        return '';
     }
 
     return response.json()
