@@ -16,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${inter.className} bg-zinc-900 text-gray-300 dark flex flex-col h-full scroll-smooth`}>{children}</body>
+      <body
+        className={`${inter.className} bg-zinc-900 text-gray-300 dark flex flex-col h-full scroll-smooth`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

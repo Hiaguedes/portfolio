@@ -23,6 +23,11 @@ const ProjectsIds: IdRepo[] = [
       techsUsed: ["next", "javascript"],
       src: Repos.Assets.QUIZ_WEB,
     },
+    {
+      id: Repos.Id.JOURNEY_NLW,
+      techsUsed: ["node", "typescript"],
+      src: Repos.Assets.JOURNEY_NLW,
+    },
   ];
 
   export default ProjectsIds

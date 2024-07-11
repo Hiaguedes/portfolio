@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import Image, { ImageProps } from "next/image"
-import { SiCsharp, SiCss3, SiGithubactions, SiHtml5, SiJavascript, SiJest, SiNpm, SiReact, SiRedux, SiRust, SiStyledcomponents, SiTailwindcss, SiTmobile, SiTypescript } from "react-icons/si"
+import { SiCsharp, SiCss3, SiGithubactions, SiHtml5, SiJavascript, SiJest, SiNodedotjs, SiNpm, SiReact, SiRedux, SiRust, SiStyledcomponents, SiTailwindcss, SiTmobile, SiTypescript } from "react-icons/si"
 import { RiNextjsFill } from "react-icons/ri"
 import { CiMobile1 } from "react-icons/ci"
 
@@ -60,7 +60,7 @@ const PortfolioCardDescription = React.forwardRef<
 ))
 PortfolioCardDescription.displayName = "PortfolioCardDescription"
 
-export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp' | 'gh-actions' | 'css' | 'javascript' | 'rust' | 'html' | 'jest' | 'mobile';
+export type TechVariants = 'npm' | 'typescript' | 'next' | 'react' | 'redux' | 'styled-components'| 'tailwind' | 'cSharp' | 'gh-actions' | 'css' | 'javascript' | 'rust' | 'html' | 'jest' | 'mobile' | 'node';
 
 const PortfolioCardContent = React.forwardRef<
   HTMLImageElement,
@@ -86,6 +86,7 @@ const PortfolioCardContent = React.forwardRef<
     ['html', <SiHtml5 key="html" size={20} />],
     ['jest', <SiJest key="jest" size={20} />],
     ['mobile', <CiMobile1 key="mobile" size={20} />],
+    ['node', <SiNodedotjs key="node" size={20} />],
   ])
 
   return(
