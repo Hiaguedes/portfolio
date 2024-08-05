@@ -102,7 +102,7 @@ export default async function Home() {
 
         <Section id={SectionsIdsEnum.ABOUT_ME}>
           <Subtitle className="mb-2">Sobre mim</Subtitle>
-          <div className="flex flex-row gap-48 mt-8">
+          <div className="flex lg:flex-row flex-col gap-16 mt-8 h-full lg:mx-0 items-center ">
             <Image
               src={personalInfo.avatar}
               unoptimized
@@ -110,7 +110,7 @@ export default async function Home() {
               height={300}
               alt="Avatar Hiago Guedes - Software Engineer"
             />
-            <p className="max-w-screen-lg">
+            <p className="max-w-96 lg:text-left text-center">
               {aboutMe ? aboutMe?.paragraph.rich_text[0].text.content : ""}
             </p>
           </div>
@@ -122,7 +122,10 @@ export default async function Home() {
             <>
               {experiences &&
                 experiences.map((experience, id) => (
-                  <div key={id} className="flex flex-row gap-20">
+                  <div
+                    key={id}
+                    className="flex lg:flex-row flex-col lg:gap-20 gap-8"
+                  >
                     <Body className="text-yellow-400">
                       <Link href={experience.company.href!}>
                         {experience.company.plain_text}

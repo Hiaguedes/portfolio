@@ -31,7 +31,7 @@ export async function GET() {
         // }
     });
 
-    const map: ExperiencesResult[] = blocks.results.map((block) => ({
+    const map: ExperiencesResult[] = (blocks.results as unknown as { properties: any }[]).map((block) => ({
         resume: block?.properties['Resumo'].rich_text[0],
         skills: block?.properties['Habilidades'].multi_select,
         period: `${formatDate(block?.properties['Periodo'].date.start)} - ${formatDate(block?.properties['Periodo']?.date.end) ?? "Emprego Atual"}`,
