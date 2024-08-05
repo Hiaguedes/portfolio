@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -86,11 +86,18 @@ const config = {
             'box-shadow': '0 0 10px #FFFF33, 0 0 20px #FFFF33, 0 0 30px #FFFF33, 0 0 40px #FFD700, 0 0 50px #FFD700, 0 0 60px #FFD700',
           },
         },
+        scaleUp: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.25)' },
+          '100%': { transform: 'scale(1)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         'slide-in': 'slide-in 0.5s ease-out forwards',
+        'scale-up': 'scaleUp 0.4s ease-in-out 0.2s forwards',
+        'hover-scale-up': 'scaleUp 0.4s ease-in-out forwards',
       },
     },
   },

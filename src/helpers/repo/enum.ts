@@ -1,14 +1,15 @@
 import { Github } from "../github/essentials";
 export namespace Repos {
 
-const baseURL = `${Github.ASSETS_URL}/${Github.OWNER}`;
+    const baseURL = `${Github.ASSETS_URL}/${Github.OWNER}`;
 
     export enum Names {
         HIAGUEDES = "Hiaguedes",
         IP_TRACK = "ip-address-tracker-master",
         LINK_AGREGATOR = "h1.labs-link-aggregator",
         QUIZ_WEB = "quiz-web",
-        JOURNEY_NLW = 'journey-nlw-backend'
+        JOURNEY_NLW = 'journey-nlw-backend',
+        ALGORITHMS = 'algorithms-book',
     }
 
     export enum Assets {
@@ -17,6 +18,7 @@ const baseURL = `${Github.ASSETS_URL}/${Github.OWNER}`;
         IP_TRACK = `${baseURL}/${Names.IP_TRACK}/${Github.MainBranches.MASTER}/design/desktop-preview.jpg`,
         LINK_AGREGATOR = `${baseURL}/${Names.LINK_AGREGATOR}/${Github.MainBranches.MASTER}/assets/preview-links-aggregator.png`,
         QUIZ_WEB = `https://camo.githubusercontent.com/dcd1dad10f0be4ed2e0fafb5c30c5c253a77222ff1e3fd511b64d068f9052b1f/68747470733a2f2f692e696d6775722e636f6d2f41524b4b6f64312e6a7067`,
+        ALGORITHMS = `${baseURL}/${Names.ALGORITHMS}/${Github.MainBranches.MAIN}/assets/in-order.png`,
     }
 
     export enum Id {
@@ -25,5 +27,6 @@ const baseURL = `${Github.ASSETS_URL}/${Github.OWNER}`;
         LINK_AGREGATOR = 372140412,
         QUIZ_WEB = 332921968,
         JOURNEY_NLW = 826600981,
+        ALGORITHMS = 831302799,
     }
 }
