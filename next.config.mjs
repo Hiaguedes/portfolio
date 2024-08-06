@@ -1,14 +1,13 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+ 
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    i18n: {
-        locales: ['pt-BR', 'en-US'],
-        defaultLocale: 'pt-BR',
-        localeDetection: false,
-    },
     images: {
         domains: ["placehold.co"]
     }
     
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

@@ -16,7 +16,6 @@ import {
   SiRust,
   SiStyledcomponents,
   SiTailwindcss,
-  SiTmobile,
   SiTypescript,
   SiVitest,
 } from "react-icons/si";

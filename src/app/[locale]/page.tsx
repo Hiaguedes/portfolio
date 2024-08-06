@@ -19,6 +19,8 @@ import PortfolioCardBuilder from "@/components/ui/PortfolioCardBuilder";
 import getAboutMeSection from "@/services/getAboutMeSection";
 import getExperiencesSection from "@/services/getExperiencesSection";
 import { Icons } from "@/components/ui/portfolio-card";
+import { useTranslations } from "next-intl";
+import { RoleText } from "@/components/ui/get-locale-components";
 
 export const metadata: Metadata = {
   authors: {
@@ -66,7 +68,7 @@ export default async function Home() {
         >
           <div className="max-w-xl flex flex-col gap-4">
             <HoverTextTitle text={"Hiaguedes"} />
-            <Body className="text-center">Desenvolvedor Front End</Body>
+            <RoleText />
           </div>
           <div className="flex flex-row gap-12 items-center mt-20">
             <Link
