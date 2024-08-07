@@ -1,5 +1,35 @@
 {
     "Home": {
-        "role": "Engenheiro de Software Front End"
+        "role": "Engenheiro de Software Front End",
+        "header": {
+            "downloadButton": "Baixar Currículo"
+        },
+        "projects": {
+            "updatedAt": "Editado em"
+        },
+        "sections": {
+            "aboutMe": {
+                "name": "Sobre mim"
+            },
+            "experiences": {
+                "name": "Experiências"
+            },
+            "projects": {
+                "name": "Projetos",
+                "description": "Projetos de front-end, projetos de back-end, projetos inacabados ou simplesmente estudo."
+            }
+        },
+        "footer": {
+            "intro": "Desenvolvido por",
+            "link": "clique aqui",
+            "knowMore": "pra saber mais detalhes desse projeto."
+        }
+    },
+    "About": {
+        "name": "Nome do projeto",
+        "version": "Versão",
+        "nodeVersion": "Versão do node",
+        "dependencies": "Dependências",
+        "devDependencies": "Dependências de desenvolvimento"
     }
 }

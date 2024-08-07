@@ -1,5 +1,35 @@
 {
     "Home": {
-        "role": "Software Engineer Front End"
+        "role": "Software Engineer Front End",
+        "header": {
+            "downloadButton": "Download Curriculum"
+        },
+        "sections": {
+            "aboutMe": {
+                "name": "About Me"
+            },
+            "experiences": {
+                "name": "Experiences"
+            },
+            "projects": {
+                "name": "Projects",
+                "description": "Front End projects, Back End projects, projects not over or just study."
+            }
+        },
+        "projects": {
+            "updatedAt": "Updated At"
+        },
+        "footer": {
+            "intro": "Developed by",
+            "link": "click here",
+            "knowMore": "to know more details about this project."
+        }
+    },
+    "About": {
+        "name": "Name of the project",
+        "version": "Version",
+        "nodeVersion": "Version of Node",
+        "dependencies": "Dependencies",
+        "devDependencies": "Development Dependencies"
     }
 }

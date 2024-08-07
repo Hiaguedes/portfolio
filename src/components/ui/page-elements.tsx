@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import { Button } from "./button";
 import { LucideChevronLeft, LucideMenu } from "lucide-react";
 import personalInfo from "hiaguedes/info.json";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { LinkText } from "./typography";
 import { SectionsIdsEnum } from "@/helpers/SectionsIdEnum";
 import {
@@ -12,6 +12,8 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@radix-ui/react-hover-card";
+import { useTranslations } from "next-intl";
+import useTranslationClientTexts from "@/hooks/useTranslationClientTexts";
 
 export const Main = React.forwardRef<
   HTMLDivElement,
@@ -84,6 +86,13 @@ export const Header: FC<HeaderProps> = ({ goBack }) => {
       });
   };
 
+  const {
+    home: {
+      sections: { aboutMe, experiences, projects },
+    },
+  } = useTranslationClientTexts();
+  const localeText = useTranslations("Home");
+
   return (
     <header className="flex justify-between items-center flex-row w-full border-b-2 border-yellow-300 p-5 h-auto sticky top-0 z-10">
       <div className="flex flex-row gap-2">
@@ -107,19 +116,19 @@ export const Header: FC<HeaderProps> = ({ goBack }) => {
                   variant="ghost"
                   onClick={() => handleScrollTo(SectionsIdsEnum.ABOUT_ME)}
                 >
-                  Sobre Mim
-                </Button>
-                <Button
-                  variant="ghost"
-                  onClick={() => handleScrollTo(SectionsIdsEnum.PROJECTS)}
-                >
-                  Projetos
+                  {aboutMe}
                 </Button>
                 <Button
                   variant="ghost"
                   onClick={() => handleScrollTo(SectionsIdsEnum.EXPERIENCES)}
                 >
-                  Experiências
+                  {experiences}
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => handleScrollTo(SectionsIdsEnum.PROJECTS)}
+                >
+                  {projects}
                 </Button>
               </>
             </div>
@@ -128,7 +137,7 @@ export const Header: FC<HeaderProps> = ({ goBack }) => {
       </div>
       <div>
         <Button onClick={(e) => handleDownloadClickButton(e)}>
-          Baixar Currículo
+          {localeText("header.downloadButton")}
         </Button>
       </div>
     </header>
@@ -140,6 +149,9 @@ export const Footer = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
+  const localeText = useTranslations("Home");
+  const { locale } = useParams<{ locale: "pt-BR" | "en-US" }>();
+
   return (
     <footer
       ref={ref}
@@ -147,11 +159,11 @@ export const Footer = React.forwardRef<
       {...props}
     >
       <p>
-        Desenvolvido por {personalInfo.name}, clique{" "}
-        <LinkText variant="emphasis" href="/about">
-          aqui
+        {localeText("footer.intro")} {personalInfo.name},{" "}
+        <LinkText variant="emphasis" href={`/${locale}/about`}>
+          {localeText("footer.link")}
         </LinkText>{" "}
-        pra saber mais detalhes desse projeto
+        {localeText("footer.knowMore")}
       </p>
     </footer>
   );

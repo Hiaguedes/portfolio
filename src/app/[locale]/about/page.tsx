@@ -2,6 +2,7 @@ import { Header, Main, Section } from "@/components/ui/page-elements";
 import { Metadata } from "next";
 import projectPackage from "../../../../package.json";
 import { Title } from "@/components/ui/typography";
+import { AboutTitle } from "@/components/ui/get-locale-components";
 
 export const metadata: Metadata = {
   title: "Portfolio - Hiago/About",
@@ -18,20 +19,19 @@ export default async function About() {
       <Header goBack />
       <Main>
         <Section id="about">
-          <Title className="my-8 text-yellow-400">Nome do projeto</Title>
+          <AboutTitle variant="name" />
           <p>{projectPackage.name}</p>
-          <Title className="my-8 text-yellow-400">Versão</Title>
+
+          <AboutTitle variant="version" />
           <p>{projectPackage.version}</p>
 
-          <Title className="my-8 text-yellow-400">Versão do node</Title>
+          <AboutTitle variant="nodeVersion" />
           <p>{projectPackage.engines.node}</p>
 
-          <Title className="my-8 text-yellow-400">Dependências</Title>
+          <AboutTitle variant="dependencies" />
           <pre>{prettifyJson(projectPackage.dependencies)}</pre>
 
-          <Title className="my-8 text-yellow-400">
-            Dependências de desenvolvimento
-          </Title>
+          <AboutTitle variant="devDependencies" />
           <pre>{prettifyJson(projectPackage.devDependencies)}</pre>
         </Section>
       </Main>

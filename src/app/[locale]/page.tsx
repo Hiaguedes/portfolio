@@ -19,8 +19,7 @@ import PortfolioCardBuilder from "@/components/ui/PortfolioCardBuilder";
 import getAboutMeSection from "@/services/getAboutMeSection";
 import getExperiencesSection from "@/services/getExperiencesSection";
 import { Icons } from "@/components/ui/portfolio-card";
-import { useTranslations } from "next-intl";
-import { RoleText } from "@/components/ui/get-locale-components";
+import { RoleText, SectionTitle } from "@/components/ui/get-locale-components";
 
 export const metadata: Metadata = {
   authors: {
@@ -43,6 +42,7 @@ export const metadata: Metadata = {
     "developer",
     "Hiago Guedes",
     "Software Engineer",
+    "Front End Software Engineer",
   ],
   openGraph: {
     title: "Portfolio - Hiago/Home",
@@ -79,7 +79,7 @@ export default async function Home() {
               <LucideMail size={30} />
             </Link>
             <Link
-              className="hover:text-yellow-400 animate-scale-up delay-150 hover:paused group-hover:scale-125:delay-0"
+              className="hover:text-yellow-400 group-hover:scale-125:delay-0 transition-all ease-linear animate-scale-up delay-150"
               target="__blank"
               href={personalInfo.socials.professional.linkedin}
             >
@@ -103,7 +103,7 @@ export default async function Home() {
         </Section>
 
         <Section id={SectionsIdsEnum.ABOUT_ME}>
-          <Subtitle className="mb-2">Sobre mim</Subtitle>
+          <SectionTitle variant="aboutMe" />
           <div className="flex lg:flex-row flex-col gap-16 mt-8 h-full lg:mx-0 items-center ">
             <Image
               src={personalInfo.avatar}
@@ -118,7 +118,7 @@ export default async function Home() {
           </div>
         </Section>
         <Section id={SectionsIdsEnum.EXPERIENCES}>
-          <Subtitle className="mb-2">Experiências</Subtitle>
+          <SectionTitle variant="experiences" />
 
           <div className="my-4">
             <>
@@ -129,7 +129,7 @@ export default async function Home() {
                     className="flex lg:flex-row flex-col lg:gap-20 gap-8"
                   >
                     <Body className="text-yellow-400">
-                      <Link href={experience.company.href!}>
+                      <Link target="__blank" href={experience.company.href!}>
                         {experience.company.plain_text}
                       </Link>
                     </Body>
@@ -154,10 +154,7 @@ export default async function Home() {
           </div>
         </Section>
         <Section id={SectionsIdsEnum.PROJECTS}>
-          <Subtitle className="mb-2">Projetos</Subtitle>
-          <Body>
-            Projetos de front-end, projetos de back-end, projetos inacabados
-          </Body>
+          <SectionTitle variant="projects" />
 
           <div className="my-6 flex flex-row gap-12 flex-wrap items-center">
             <PortfolioCardBuilder repos={ProjectsIds} data={data} />

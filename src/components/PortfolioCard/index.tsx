@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { ImageProps } from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export type PortfolioCardProps = {
   title: string;
@@ -35,6 +36,8 @@ const PortfolioCard: FC<PortfolioCardProps> = ({
   ...props
 }) => {
   const [hover, setHover] = useState(!!fakeHover ?? false);
+
+  const homeTranslations = useTranslations("Home");
 
   return (
     <PorfolioCardBase
@@ -65,7 +68,9 @@ const PortfolioCard: FC<PortfolioCardProps> = ({
             "opacity-100 h-16 p-6 transform transition-all duration-500 delay-500 absolute w-full border rounded-br-lg rounded-bl-lg"
         )}
       >
-        <p>Editado em: {updatedAt}</p>
+        <p>
+          {homeTranslations("projects.updatedAt")}: {updatedAt}
+        </p>
         <div className="flex flex-row gap-1">
           {link && (
             <Button variant="outline" size="sm">
