@@ -1,8 +1,13 @@
 import { ExperiencesResult } from "@/app/api/experiences/route";
 
-const getExperiencesSection = async (): Promise<ExperiencesResult[] | null> => {
+type GetExperiencesParams = {
+    locale: 'pt-BR' | 'en-US'
+}
 
-    const api = `${process.env.URL ?? 'http://localhost:3000'}/api/experiences`;
+const getExperiencesSection = async ({ locale }: GetExperiencesParams): Promise<ExperiencesResult[] | null> => {
+
+    const route = locale === 'pt-BR' ? '/api/experiences' : '/api/experiences/en-US'
+    const api = `${process.env.URL ?? 'http://localhost:3000'}${route}`;
     const response = await fetch(api, { cache: 'no-cache' });
 
     if (!response.ok) {

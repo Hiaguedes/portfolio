@@ -53,10 +53,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
+export default async function Home({
+  params: { locale },
+}: {
+  params: { locale: "pt-BR" | "en-US" };
+}) {
   const data = await getRepos();
-  const aboutMe = await getAboutMeSection();
-  const experiences = await getExperiencesSection();
+  const aboutMe = await getAboutMeSection({ locale });
+  const experiences = await getExperiencesSection({ locale });
 
   return (
     <>
@@ -141,7 +145,6 @@ export default async function Home() {
                       <p className="max-w-2xl">
                         {experience.resume.text.content}
                       </p>
-                      <p>Tecnologias usadas</p>
                       <div className="flex flex-row gap-2">
                         {experience.skills.map((skill) =>
                           Icons.get(skill.name)

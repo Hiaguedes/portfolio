@@ -55,6 +55,7 @@ type HeaderProps = {
 };
 export const Header: FC<HeaderProps> = ({ goBack }) => {
   const { back } = useRouter();
+  const { locale } = useParams<{ locale: "pt-BR" | "en-US" }>();
 
   const handleScrollTo = (id: SectionsIdsEnum) => {
     const targetElement = document.getElementById(id);
@@ -66,7 +67,9 @@ export const Header: FC<HeaderProps> = ({ goBack }) => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    const response = await fetch(`/api/pdf`);
+    const response = await fetch(
+      locale === "pt-BR" ? `/api/pdf` : "api/pdf/en-US"
+    );
 
     const content = (await response.json()) as any;
     const pdfUrl = content?.file.file.url;
