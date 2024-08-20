@@ -30,7 +30,7 @@ const ProjectsIds: IdRepo[] = [
   },
   {
     id: Repos.Id.ALGORITHMS,
-    techsUsed: ["typescript", "vitest"],
+    techsUsed: ["typescript", "vitest", 'gh-actions'],
     src: Repos.Assets.ALGORITHMS,
   },
 ];

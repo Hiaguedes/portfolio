@@ -24,11 +24,6 @@ export async function GET() {
 
     const blocks = await notion.databases.query({
         database_id: process.env.NOTION_EXPERIENCES_TABLE!,
-        // filter: {
-        //     property: "multi_select",
-        //     multi_select: { contains: "name" },
-
-        // }
     });
 
     const map: ExperiencesResult[] = (blocks.results as unknown as { properties: any }[]).map((block) => ({
